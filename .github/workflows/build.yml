@@ -16,10 +16,10 @@ jobs:
       - name: Unzip project
         run: unzip -o SmartStockAI.zip -d unzipped_project
 
-      - name: Fix 404 Model Name
+      - name: Update Model to gemini-3.8-flash
         run: |
           FILE=$(find unzipped_project -name 'GeminiService.kt' | head -n 1)
-          sed -i 's/gemini-2.5-flash/gemini-2.0-flash/g' "$FILE"
+          sed -i 's/2.5-flash/3.8-flash/g' "$FILE"
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
